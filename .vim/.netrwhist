@@ -1,6 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =5
 let g:netrw_dirhist_1='/export/cirkus/web/samfundet.no/bingosys/templates'
 let g:netrw_dirhist_2='/export/cirkus/web/samfundet.no/bingosys/templates/generator'
 let g:netrw_dirhist_3='/home/cassarossa/itk/matiaskj/dev/mdb2/web/admin'
 let g:netrw_dirhist_4='/home/cassarossa/itk/matiaskj/dev/itkadduser/ITK'
+let g:netrw_dirhist_5='/home/cassarossa/itk/matiaskj/.git/dotfiles/.git'
