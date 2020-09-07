@@ -50,6 +50,7 @@ function! TodoFoldText()
     return line . " (" . (v:foldend - v:foldstart + 1) . " lines)"
 endfunction
 
+
 set foldtext=TodoFoldText()
 
 let b:current_syntax = "todo"

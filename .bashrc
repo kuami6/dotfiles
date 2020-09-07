@@ -6,7 +6,7 @@ alias cls='clear'
 alias skrivut='lp -d motzfeldt -h printhost.samfundet.no'
 alias memes="cd ~/public_html/memes"
 alias itkmemes="cd /home/cassarossa/itk/felles/memes/ITKmemes"
-alias todo="vim /home/cassarossa/itk/matiaskj/Documents/nettverksansvarlig/itk.todo"
+#alias todo="vim /home/cassarossa/itk/matiaskj/Documents/nettverksansvarlig/itk.todo"
 
 #CD alias
 alias ..='cd ..'
