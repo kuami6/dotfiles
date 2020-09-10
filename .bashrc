@@ -15,7 +15,7 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
-#export PATH=/home/cassarossa/itk/matiaskj/scripts:$PATH
+export PATH=/home/cassarossa/itk/matiaskj/bin:$PATH
 export GOPATH=/home/cassarossa/itk/felles/itkbot/go-1.2.1
 # /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
