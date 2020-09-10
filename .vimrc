@@ -1,3 +1,4 @@
+set nocompatible
 syntax on
 filetype plugin on
 set number
@@ -14,11 +15,10 @@ let mapleader = " "
 
 filetype plugin on
 
-set list
+set nolist
 set listchars=nbsp:‰
 
 " vundle
-set nocompatible
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -47,6 +47,7 @@ let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
 set conceallevel=1
 let g:tex_conceal='abdmg'
+let g:vimtex_compiler_engine ='lualatex'
 
 if !exists('g:ycm_semantic_triggers')
     let g:ycm_semantic_triggers = {}
