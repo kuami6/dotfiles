@@ -113,3 +113,5 @@ alias reload='source /home/matias/.zshrc'
 # samfundet
 alias skrivut='lp -d motzfeldt -h printhost.samfundet.no'
 alias cassa='mosh matiaskj@cassarossa.samfundet.no'
+
+source ~/.local-zshrc.sh
