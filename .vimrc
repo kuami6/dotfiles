@@ -1,4 +1,5 @@
 set nocompatible
+set t_Co=256
 syntax on
 filetype plugin on
 set number
@@ -10,6 +11,7 @@ set smartindent
 set wrapscan
 set ignorecase
 
+colorscheme torte
 " Spelling and language
 "set spell
 "set spelllang=nb,en_us
@@ -30,6 +32,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " A Vim Plugin for Lively Previewing LaTeX PDF Output
+Plugin 'morhetz/gruvbox'
 Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'lervag/vimtex'
 Plugin 'vimwiki/vimwiki'
@@ -38,6 +41,9 @@ Plugin 'ycm-core/youcompleteme'
 
 call vundle#end()
 filetype plugin indent on
+
+" Gruvbox
+" autocmd VimEnter * colorscheme gruvbox
 
 " Live-Preview-conf
 autocmd Filetype tex setl updatetime=1
@@ -77,6 +83,8 @@ let g:vimwiki_list = [{'path': '~/Documents', 'syntax': 'markdown'}]
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardsTrigger = '<s-tab>'
+
+"
 
 "{{{ keybinding
 noremap <Up> <NOP>
