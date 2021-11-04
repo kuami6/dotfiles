@@ -3,7 +3,6 @@ set t_Co=256
 syntax on
 filetype plugin on
 set number
-set relativenumber
 set shiftwidth=4
 set tabstop=4
 set expandtab
