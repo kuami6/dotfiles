@@ -9,6 +9,12 @@ set expandtab
 set smartindent
 set wrapscan
 set ignorecase
+set textwidth=80
+
+" format options
+
+" autowrap lines at textwidth
+set formatoptions+=t
 
 colorscheme torte
 " Spelling and language
