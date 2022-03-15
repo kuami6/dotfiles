@@ -1,4 +1,5 @@
 set nocompatible
+
 set t_Co=256
 syntax on
 filetype plugin on
@@ -11,10 +12,10 @@ set wrapscan
 set ignorecase
 set textwidth=80
 
-" format options
-
 " autowrap lines at textwidth
-set formatoptions+=t
+" Turn off autocomment on newline but keep comment on wrapped line
+autocmd BufNewFile ,BufRead * setlocal formatoptions+=t
+autocmd BufNewFile ,BufRead * setlocal formatoptions-=ro
 
 colorscheme torte
 " Spelling and language
@@ -98,3 +99,4 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 
 "}}}
+
