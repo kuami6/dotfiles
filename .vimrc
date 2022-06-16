@@ -17,10 +17,15 @@ set textwidth=80
 autocmd BufNewFile ,BufRead * setlocal formatoptions+=t
 autocmd BufNewFile ,BufRead * setlocal formatoptions-=ro
 
+
 colorscheme torte
 " Spelling and language
 "set spell
 "set spelllang=nb,en_us
+
+
+" set matching bracket highlight
+hi MatchParen cterm=bold ctermbg=none ctermfg=red
 
 let mapleader = " "
 
@@ -43,7 +48,11 @@ Plugin 'xuhdev/vim-latex-live-preview'
 Plugin 'lervag/vimtex'
 Plugin 'vimwiki/vimwiki'
 Plugin 'sirver/ultisnips'
-Plugin 'ycm-core/youcompleteme'
+
+" Rust plugin
+Plugin 'dense-analysis/ale'
+Plugin 'cespare/vim-toml'
+Plugin 'rust-lang/rust.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -90,13 +99,31 @@ let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardsTrigger = '<s-tab>'
 
-"
+" RustFmt
+let g:rustfmt_autosave = 1
+
+" ALE conf
+
+highlight ALEError ctermbg=none cterm=underline
+highlight ALEWarning ctermbg=none cterm=underline
+set completeopt=menu,menuone,preview,noselect,noinsert
+let g:ale_completion_enabled = 1
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = "✗"
+let g:ale_sign_warning = ""
+" let g:ale_linters = {'rust': ['rustc', 'rls']}
+" let g:ale_linters = {'rust': ['cargo', 'rls']}
+" Rust specific
+let g:ale_linters = {'rust': ['analyzer']}
+let g:ale_rust_rls_toolchain = 'stable'
+
+" Rust conf
+" autocmd Filetype rust setlocal ts=4 sw=4 expandtab
 
 "{{{ keybinding
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
-
 "}}}
 
