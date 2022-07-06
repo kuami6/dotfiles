@@ -17,12 +17,10 @@ set textwidth=80
 autocmd BufNewFile ,BufRead * setlocal formatoptions+=t
 autocmd BufNewFile ,BufRead * setlocal formatoptions-=ro
 
-
 colorscheme torte
 " Spelling and language
 "set spell
 "set spelllang=nb,en_us
-
 
 " set matching bracket highlight
 hi MatchParen cterm=bold ctermbg=none ctermfg=red
@@ -33,6 +31,9 @@ filetype plugin on
 
 set nolist
 set listchars=nbsp:‰
+
+" Stop annoyting scratch window showing on compleation suggestion
+set completeopt-=preview
 
 " vundle
 filetype off
@@ -53,6 +54,9 @@ Plugin 'sirver/ultisnips'
 Plugin 'dense-analysis/ale'
 Plugin 'cespare/vim-toml'
 Plugin 'rust-lang/rust.vim'
+
+" Golang
+Plugin 'fatih/vim-go'
 
 call vundle#end()
 filetype plugin indent on
