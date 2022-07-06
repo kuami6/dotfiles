@@ -1,12 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =4
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/home/matiaskj/.local'
+let g:netrw_dirhist_7='/home/matiaskj/.vim/bundle/Vundle.vim'
+let g:netrw_dirhist_6='/home/matiaskj/.vim/bundle'
+let g:netrw_dirhist_5='/home/matiaskj/.vim'
 let g:netrw_dirhist_4='/home/matiaskj/.local'
 let g:netrw_dirhist_3='/home/matiaskj/repos/FremtidensUtviklingsflate/dokumentasjon/img'
 let g:netrw_dirhist_2='/home/matiaskj/go/bin'
 let g:netrw_dirhist_1='/home/matiaskj/go'
 let g:netrw_dirhist_0='/home/matiaskj/dev/gotest'
 let g:netrw_dirhist_9='/home/matiaskj'
-let g:netrw_dirhist_8='/home/matiaskj/.wine'
-let g:netrw_dirhist_7='/home/matiaskj/Documents/projects/lrnrust/learn-luminance/examples/chapter-1/src'
-let g:netrw_dirhist_6='/home/matiaskj/Documents/projects/lrnrust/learn-luminance/examples/chapter-1'
-let g:netrw_dirhist_5='/home/matiaskj/Documents/projects/lrnrust/textgame/src'
