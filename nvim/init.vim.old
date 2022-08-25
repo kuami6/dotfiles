@@ -26,14 +26,15 @@ set wildmode=longest:full,full
 syntax on
 filetype plugin on
 
-"{{{ Plugins
-call plug#begin()
-Plug 'williamboman/mason'
-Plug 'neovim/nvim-lspconfig'
-Plug 'fatih/vim-go'
-Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' } " < lazy loaded
-call plug#end()
-"}}}
+""{{{ Plugins
+"call plug#begin()
+"Plug 'williamboman/mason'
+"Plug 'williamboman/mason-lspconfig.nvim'
+"Plug 'neovim/nvim-lspconfig'
+"Plug 'fatih/vim-go'
+"Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' } " < lazy loaded
+"call plug#end()
+""}}}
 
 " Goloang LSP settings
 let g:go_gopls_enabled = 0
