@@ -1,3 +1,5 @@
+require("plugins").setup()
+
 -- Settings
 vim.opt.encoding="utf-8"
 vim.opt.number=true
@@ -9,53 +11,19 @@ vim.opt.tabstop=4
 vim.opt.expandtab=true
 vim.opt.smartindent=true
 
-
 vim.opt.wrapscan=true
 vim.opt.ignorecase=true
 vim.opt.textwidth=80
-
---vim.opt.wildmenu=true
---vim.cmd("wildmode=longest:full,full")
-
--- Plugins
-require('packer').startup(function(use)
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
-
-  -- Themes
-  use { "ellisonleao/gruvbox.nvim" }
-  -- LSP
-  use {
-    'VonHeikemen/lsp-zero.nvim',
-    requires = {
-      -- LSP Support
-      {'neovim/nvim-lspconfig'},
-      {'williamboman/mason.nvim'},
-      {'williamboman/mason-lspconfig.nvim'},
-
-      -- Autocompletion
-      {'hrsh7th/nvim-cmp'},
-      {'hrsh7th/cmp-buffer'},
-      {'hrsh7th/cmp-path'},
-      {'saadparwaiz1/cmp_luasnip'},
-      {'hrsh7th/cmp-nvim-lsp'},
-      {'hrsh7th/cmp-nvim-lua'},
-
-      -- Snippets
-      {'L3MON4D3/LuaSnip'},
-      {'rafamadriz/friendly-snippets'},
-    }
-  }
-    use { "fatih/vim-go"}
-end)
+vim.opt.signcolumn="yes"
 
 -- Colorshceme
 vim.o.background = "dark" -- or "light" for light mode
---vim.cmd("colorscheme gruvbox")
+vim.cmd("colorscheme industry")
 vim.cmd("hi MatchParen cterm=bold ctermbg=none ctermfg=red")
 
--- init lsp-zero
+--init lsp-zero
 local lsp = require('lsp-zero')
+--vim.cmd("let g:lsp_diagnostics_echo_cursor = 1")
 
 lsp.preset('recommended')
 lsp.setup()
@@ -96,3 +64,32 @@ imap("<Down>", "<NOP>")
 imap("<Left>", "<NOP>")
 imap("<Right>", "<NOP>")
 
+-- DAP Keybinds
+--map({ "n", "<F4>", ":lua require('dapui').toggle()<CR>" })
+--map({ "n", "<F5>", ":lua require('dap').toggle_breakpoint()<CR>" })
+--map({ "n", "<F9>", ":lua require('dap').continue()<CR>" })
+--
+--map({ "n", "<F1>", ":lua require('dap').step_over()<CR>" })
+--map({ "n", "<F2>", ":lua require('dap').step_into()<CR>" })
+--map({ "n", "<F3>", ":lua require('dap').step_out()<CR>" })
+--
+--map({ "n", "<Leader>dsc", ":lua require('dap').continue()<CR>" })
+--map({ "n", "<Leader>dsv", ":lua require('dap').step_over()<CR>" })
+--map({ "n", "<Leader>dsi", ":lua require('dap').step_into()<CR>" })
+--map({ "n", "<Leader>dso", ":lua require('dap').step_out()<CR>" })
+--
+--map({ "n", "<Leader>dhh", ":lua require('dap.ui.variables').hover()<CR>" })
+--map({ "v", "<Leader>dhv", ":lua require('dap.ui.variables').visual_hover()<CR>" })
+--
+--map({ "n", "<Leader>duh", ":lua require('dap.ui.widgets').hover()<CR>" })
+--map({ "n", "<Leader>duf", ":lua local widgets=require('dap.ui.widgets');widgets.centered_float(widgets.scopes)<CR>" })
+--
+--map({ "n", "<Leader>dro", ":lua require('dap').repl.open()<CR>" })
+--map({ "n", "<Leader>drl", ":lua require('dap').repl.run_last()<CR>" })
+--
+--map({ "n", "<Leader>dbc", ":lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>" })
+--map({ "n", "<Leader>dbm", ":lua require('dap').set_breakpoint({ nil, nil, vim.fn.input('Log point message: ') })<CR>" })
+--map({ "n", "<Leader>dbt", ":lua require('dap').toggle_breakpoint()<CR>" })
+--
+--map({ "n", "<Leader>dc", ":lua require('dap.ui.variables').scopes()<CR>" })
+--map({ "n", "<Leader>di", ":lua require('dapui').toggle()<CR>" })

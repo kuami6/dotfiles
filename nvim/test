@@ -1,0 +1,73 @@
+
+
+times in msec
+ clock   self+sourced   self:  sourced script
+ clock   elapsed:              other lines
+
+000.010  000.010: --- NVIM STARTING ---
+000.649  000.638: locale set
+001.011  000.362: inits 1
+001.023  000.012: window checked
+001.025  000.002: parsing arguments
+003.278  002.252: init lua interpreter
+003.650  000.373: expanding arguments
+003.678  000.028: inits 2
+004.164  000.486: init highlight
+004.166  000.002: waiting for UI
+005.649  001.483: done waiting for UI
+005.686  000.037: init screen for UI
+005.708  000.022: init default mappings
+005.736  000.027: init default autocommands
+006.698  000.066  000.066: sourcing /usr/share/nvim/runtime/ftplugin.vim
+006.897  000.033  000.033: sourcing /usr/share/nvim/runtime/indent.vim
+006.991  000.030  000.030: sourcing $VIM/sysinit.vim
+053.263  046.242  046.242: sourcing /home/nhn/t1-matiass/.config/nvim/init.lua
+053.283  001.176: sourcing vimrc file(s)
+053.511  000.055  000.055: sourcing /usr/share/nvim/runtime/filetype.lua
+060.732  000.019  000.019: sourcing /home/nhn/t1-matiass/.local/share/nvim/site/pack/packer/start/LuaSnip/ftdetect/snippets.vim
+061.179  000.282  000.282: sourcing /home/nhn/t1-matiass/.local/share/nvim/site/pack/packer/start/vim-go/ftdetect/gofiletype.vim
+061.497  007.963  007.661: sourcing /usr/share/nvim/runtime/filetype.vim
+061.822  000.090  000.090: sourcing /usr/share/nvim/runtime/syntax/synload.vim
+061.993  000.407  000.316: sourcing /usr/share/nvim/runtime/syntax/syntax.vim
+063.216  000.310  000.310: sourcing /usr/share/nvim/runtime/plugin/gzip.vim
+063.252  000.011  000.011: sourcing /usr/share/nvim/runtime/plugin/health.vim
+063.345  000.076  000.076: sourcing /usr/share/nvim/runtime/plugin/man.vim
+063.935  000.205  000.205: sourcing /usr/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim
+064.049  000.686  000.481: sourcing /usr/share/nvim/runtime/plugin/matchit.vim
+064.212  000.142  000.142: sourcing /usr/share/nvim/runtime/plugin/matchparen.vim
+064.648  000.417  000.417: sourcing /usr/share/nvim/runtime/plugin/netrwPlugin.vim
+064.879  000.012  000.012: sourcing /home/nhn/t1-matiass/.local/share/nvim/rplugin.vim
+064.891  000.203  000.191: sourcing /usr/share/nvim/runtime/plugin/rplugin.vim
+065.035  000.119  000.119: sourcing /usr/share/nvim/runtime/plugin/shada.vim
+065.090  000.023  000.023: sourcing /usr/share/nvim/runtime/plugin/spellfile.vim
+065.271  000.159  000.159: sourcing /usr/share/nvim/runtime/plugin/tarPlugin.vim
+065.383  000.076  000.076: sourcing /usr/share/nvim/runtime/plugin/tohtml.vim
+065.421  000.017  000.017: sourcing /usr/share/nvim/runtime/plugin/tutor.vim
+065.667  000.223  000.223: sourcing /usr/share/nvim/runtime/plugin/zipPlugin.vim
+066.427  000.592  000.592: sourcing /home/nhn/t1-matiass/.config/nvim/plugin/packer_compiled.lua
+066.764  002.000: loading rtp plugins
+067.479  000.445  000.445: sourcing /home/nhn/t1-matiass/.local/share/nvim/site/pack/packer/start/LuaSnip/plugin/luasnip.vim
+067.917  000.044  000.044: sourcing /home/nhn/t1-matiass/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim/plugin/lsp-zero.vim
+069.724  001.584  001.584: sourcing /home/nhn/t1-matiass/.local/share/nvim/site/pack/packer/start/nvim-cmp/plugin/cmp.lua
+070.083  000.159  000.159: sourcing /home/nhn/t1-matiass/.local/share/nvim/site/pack/packer/start/nvim-lspconfig/plugin/lspconfig.lua
+070.813  000.448  000.448: sourcing /home/nhn/t1-matiass/.local/share/nvim/site/pack/packer/start/vim-go/autoload/go/config.vim
+071.728  000.444  000.444: sourcing /home/nhn/t1-matiass/.local/share/nvim/site/pack/packer/start/vim-go/autoload/go/util.vim
+071.780  001.585  000.693: sourcing /home/nhn/t1-matiass/.local/share/nvim/site/pack/packer/start/vim-go/plugin/go.vim
+072.000  001.417: loading packages
+072.971  000.644  000.644: sourcing /home/nhn/t1-matiass/.local/share/nvim/site/pack/packer/start/cmp-buffer/after/plugin/cmp_buffer.lua
+073.184  000.118  000.118: sourcing /home/nhn/t1-matiass/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp/after/plugin/cmp_nvim_lsp.lua
+073.468  000.206  000.206: sourcing /home/nhn/t1-matiass/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua/after/plugin/cmp_nvim_lua.lua
+073.937  000.349  000.349: sourcing /home/nhn/t1-matiass/.local/share/nvim/site/pack/packer/start/cmp-path/after/plugin/cmp_path.lua
+074.383  000.354  000.354: sourcing /home/nhn/t1-matiass/.local/share/nvim/site/pack/packer/start/cmp_luasnip/after/plugin/cmp_luasnip.lua
+074.504  000.020  000.020: sourcing /home/nhn/t1-matiass/.config/nvim/after/plugin/defaults.lua
+074.509  000.819: loading after plugins
+074.522  000.013: inits 3
+076.385  001.863: reading ShaDa
+076.933  000.548: opening buffers
+076.960  000.027: BufEnter autocommands
+076.963  000.003: editing files in windows
+077.183  000.220: VimEnter autocommands
+077.186  000.003: UIEnter autocommands
+077.190  000.003: before starting main loop
+077.856  000.666: first screen update
+077.859  000.003: --- NVIM STARTED ---
