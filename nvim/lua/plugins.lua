@@ -3,7 +3,6 @@ local M = {}
 function M.setup()
   -- Indicate first time installation
   local packer_bootstrap = false
-
   -- packer.nvim configuration
   local conf = {
     profile = {
@@ -44,7 +43,12 @@ function M.setup()
     -- Noconfigs
     use { 'mfussenegger/nvim-lint' }
     use { "mfussenegger/nvim-dap" }
-    use { "fatih/vim-go"}
+    use {
+        "fatih/vim-go",
+        config = function()
+            require("config.vim-go").setup()
+        end,
+    }
 
     -- LSP
     use {
@@ -67,28 +71,34 @@ function M.setup()
           {'L3MON4D3/LuaSnip'},
           {'rafamadriz/friendly-snippets'},
         }
-      }
+    }
     use {
         "preservim/nerdtree",
         cmd = "NERDTree",
         config = function()
             require("config.nerdtree").setup()
         end,
-      }
+    }
     use {
         "nvim-treesitter/nvim-treesitter",
         run = ':TSUpdate',
         config = function()
             require("config.treesitter").setup()
-        end
+        end,
     }
     use {
         "folke/trouble.nvim",
         requires = "kyazdani42/nvim-web-devicons",
         config = function()
             require("config.trouble").setup()
-        end
+        end,
     }
+	use {
+		"junegunn/fzf",
+		config = function()
+			require("config.fzf").setup()
+		end,
+ 	}
     if packer_bootstrap then
       print "Restart Neovim required after installation!"
       require("packer").sync()
@@ -101,6 +111,5 @@ function M.setup()
   packer.init(conf)
   packer.startup(plugins)
 end
-
 
 return M

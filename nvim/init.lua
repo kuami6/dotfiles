@@ -1,4 +1,3 @@
-require("plugins").setup()
 
 -- Settings
 vim.opt.encoding="utf-8"
@@ -18,22 +17,10 @@ vim.opt.signcolumn="yes"
 
 -- Colorshceme
 vim.o.background = "dark" -- or "light" for light mode
-vim.cmd("colorscheme industry")
+vim.cmd("colorscheme gruvbox")
 vim.cmd("hi MatchParen cterm=bold ctermbg=none ctermfg=red")
 
---init lsp-zero
-local lsp = require('lsp-zero')
---vim.cmd("let g:lsp_diagnostics_echo_cursor = 1")
-
-lsp.preset('recommended')
-lsp.setup()
-
--- vim-go
-
-vim.g.go_gopls_enabled = "0"
-
 -- Keybinds
-
 function map(mode, shortcut, command)
   vim.api.nvim_set_keymap(mode, shortcut, command, { noremap = true, silent = true })
 end
@@ -47,8 +34,8 @@ function imap(shortcut, command)
 end
 
 --Set spacebar as leader key
-nmap("<SPACE>", "<Nop>")
-vim.g.mapleader = "<SPACE>"
+nmap(" ", "<Nop>")
+vim.g.mapleader = " "
 
 -- Exit insert mode with ii
 imap("ii", "<ESC>")
@@ -63,6 +50,24 @@ imap("<Up>", "<NOP>")
 imap("<Down>", "<NOP>")
 imap("<Left>", "<NOP>")
 imap("<Right>", "<NOP>")
+
+-- Load Plugins
+require("plugins").setup()
+--init lsp-zero
+local lsp = require('lsp-zero')
+--vim.cmd("let g:lsp_diagnostics_echo_cursor = 1")
+
+lsp.preset('recommended')
+lsp.setup()
+
+-- NERDTree
+-- since nerdtree is lazy loaded we need to add a keybind here instead of in its
+-- config
+
+vim.api.nvim_set_keymap("n", "<leader>t", "<Cmd>NERDTree<CR>", {noremap = true, silent = true})
+-- vim-go
+
+vim.g.go_gopls_enabled = "0"
 
 -- DAP Keybinds
 --map({ "n", "<F4>", ":lua require('dapui').toggle()<CR>" })
