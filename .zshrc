@@ -114,4 +114,8 @@ alias reload='source /home/matias/.zshrc'
 alias skrivut='lp -d motzfeldt -h printhost.samfundet.no'
 alias cassa='mosh matiaskj@cassarossa.samfundet.no'
 
+# do not share history between shells
+setopt noincappendhistory
+setopt nosharehistory
+
 source ~/.local-zshrc.sh
