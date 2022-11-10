@@ -10,6 +10,10 @@ vim.opt.tabstop=4
 vim.opt.expandtab=true
 vim.opt.smartindent=true
 
+--- Splitting
+vim.opt.splitbelow=true
+vim.opt.splitright=true
+
 vim.opt.wrapscan=true
 vim.opt.ignorecase=true
 vim.opt.textwidth=80
