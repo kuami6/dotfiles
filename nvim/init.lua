@@ -14,10 +14,13 @@ vim.opt.smartindent=true
 vim.opt.splitbelow=true
 vim.opt.splitright=true
 
-vim.opt.wrapscan=true
+vim.opt.wrapscan=false
 vim.opt.ignorecase=true
 vim.opt.textwidth=80
 vim.opt.signcolumn="yes"
+
+-- Scroll earlier
+vim.o.scrolloff = 8;
 
 -- Colorshceme
 vim.o.background = "dark" -- or "light" for light mode
@@ -54,6 +57,10 @@ imap("<Up>", "<NOP>")
 imap("<Down>", "<NOP>")
 imap("<Left>", "<NOP>")
 imap("<Right>", "<NOP>")
+
+-- Keep cursor in center of screen when tabbing
+nmap("<C-u>", "<C-u>zz");
+nmap("<C-d>", "<C-d>zz");
 
 -- Load Plugins
 require("plugins").setup()
@@ -102,3 +109,4 @@ vim.g.go_gopls_enabled = "0"
 --
 --map({ "n", "<Leader>dc", ":lua require('dap.ui.variables').scopes()<CR>" })
 --map({ "n", "<Leader>di", ":lua require('dapui').toggle()<CR>" })
+
