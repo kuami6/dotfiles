@@ -1,5 +1,18 @@
 local M = {}
 
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
+end
+
+local packer_bootstrap = ensure_packer()
+
 function M.setup()
   -- Indicate first time installation
   local packer_bootstrap = false
@@ -49,7 +62,13 @@ function M.setup()
             require("config.vim-go").setup()
         end,
     }
-
+    -- NeoScroll
+    use { 'karb94/neoscroll.nvim',
+        config = function()
+            require("config.neoscroll").setup()
+        end,
+        require('neoscroll').setup(),
+    }
     -- LSP
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -78,6 +97,10 @@ function M.setup()
         config = function()
             require("config.nerdtree").setup()
         end,
+    }
+
+    use {
+        "towolf/vim-helm",
     }
     use {
         "nvim-treesitter/nvim-treesitter",
