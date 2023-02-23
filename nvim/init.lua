@@ -24,7 +24,7 @@ vim.o.scrolloff = 8;
 
 -- Colorshceme
 vim.o.background = "dark" -- or "light" for light mode
-vim.cmd("colorscheme gruvbox")
+--vim.cmd("colorscheme gruvbox")
 vim.cmd("hi MatchParen cterm=bold ctermbg=none ctermfg=red")
 
 -- Keybinds
@@ -63,21 +63,32 @@ nmap("<C-u>", "<C-u>zz");
 nmap("<C-d>", "<C-d>zz");
 
 -- Load Plugins
-require("plugins").setup()
+require("plugins")
+
+local lsp = require('lsp-zero').preset({
+    name = 'minimal',
+    set_lsp_keymaps = true,
+    manage_nvim_cpm = true,
+    suggest_lsp_servers = true,
+})
+
+lsp.setup()
+
+require('neoscroll').setup()
 --init lsp-zero
-local lsp = require('lsp-zero')
+--
+--local lsp = require('lsp-zero')
 --vim.cmd("let g:lsp_diagnostics_echo_cursor = 1")
 
-lsp.preset('recommended')
-lsp.setup()
+--lsp.preset('recommended')
+--lsp.setup()
 
 -- NERDTree
 -- since nerdtree is lazy loaded we need to add a keybind here instead of in its
 -- config
-
 vim.api.nvim_set_keymap("n", "<leader>t", "<Cmd>NERDTree<CR>", {noremap = true, silent = true})
--- vim-go
 
+-- vim-go
 vim.g.go_gopls_enabled = "0"
 
 -- DAP Keybinds

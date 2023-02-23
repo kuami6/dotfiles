@@ -1,46 +1,19 @@
-local M = {}
+local fn = vim.fn
 
-function M.setup()
-  -- Indicate first time installation
-  local packer_bootstrap = false
-  -- packer.nvim configuration
-  local conf = {
-    profile = {
-      enable = true,
-      threshold = 0, -- the amount in ms that a plugins load time must be over for it to be included in the profile
-    },
-    display = {
-      open_fn = function()
-        return require("packer.util").float { border = "rounded" }
-      end,
-    },
-  }
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+if fn.empty(fn.glob(install_path)) > 0 then
+    Packer_Bootstrap = fn.system({ 'git','clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+    vim.cmd [[packadd packer.nvim]]
+end
 
-  -- Check if packer.nvim is installed
-  -- Run PackerCompile if there are changes in this file
-  local function packer_init()
-    local fn = vim.fn
-    local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
-    if fn.empty(fn.glob(install_path)) > 0 then
-      packer_bootstrap = fn.system {
-        "git",
-        "clone",
-        "--depth",
-        "1",
-        "https://github.com/wbthomason/packer.nvim",
-        install_path,
-      }
-      vim.cmd [[packadd packer.nvim]]
-    end
-    vim.cmd "autocmd BufWritePost plugins.lua source <afile> | PackerCompile"
-  end
+local present, packer = pcall(require, "packer")
 
-  -- Plugins
-  local function plugins(use)
-    use { "wbthomason/packer.nvim" }
-    -- Themes
-    use { "ellisonleao/gruvbox.nvim" }
-    -- Noconfigs
+if not present then
+    return
+end
+
+packer.startup(function(use)
+    use 'wbthomason/packer.nvim'
     use { 'mfussenegger/nvim-lint' }
     use { "mfussenegger/nvim-dap" }
     use {
@@ -72,8 +45,8 @@ function M.setup()
         }
     }
     -- NeoScroll
-    use { 'karb95/neoscroll.nvim',
-        require('neoscroll').setup(),
+    use { 'karb94/neoscroll.nvim',
+        require('neoscroll').setup()
     }
     -- NERDTree
     use {
@@ -89,7 +62,10 @@ function M.setup()
     }
     use {
         "nvim-treesitter/nvim-treesitter",
-        run = ':TSUpdate',
+        run = function()
+            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+            ts_update()
+        end,
         config = function()
             require("config.treesitter").setup()
         end,
@@ -107,17 +83,7 @@ function M.setup()
 			require("config.fzf").setup()
 		end,
  	}
-    if packer_bootstrap then
-      print "Restart Neovim required after installation!"
-      require("packer").sync()
+    if Packer_Bootstrap then
+        require('packer').sync()
     end
-  end
-
-  packer_init()
-
-  local packer = require "packer"
-  packer.init(conf)
-  packer.startup(plugins)
-end
-
-return M
+end)
