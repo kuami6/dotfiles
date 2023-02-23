@@ -13,18 +13,22 @@ if not present then
 end
 
 packer.startup(function(use)
-    use 'wbthomason/packer.nvim'
+    use { 'wbthomason/packer.nvim' }
+
     use { 'mfussenegger/nvim-lint' }
     use { "mfussenegger/nvim-dap" }
-    use {
-        "fatih/vim-go",
+
+    -- Vim go
+    use { "fatih/vim-go",
         config = function()
             require("config.vim-go").setup()
         end,
     }
+
+    use { "towolf/vim-helm" }
+
     -- LSP
-    use {
-        'VonHeikemen/lsp-zero.nvim',
+    use { 'VonHeikemen/lsp-zero.nvim',
         requires = {
           -- LSP Support
           {'neovim/nvim-lspconfig'},
@@ -44,24 +48,24 @@ packer.startup(function(use)
           {'rafamadriz/friendly-snippets'},
         }
     }
+
     -- NeoScroll
     use { 'karb94/neoscroll.nvim',
         require('neoscroll').setup()
     }
+
+    -- Gruvbox theme
+    use { "ellisonleao/gruvbox.nvim" }
+
     -- NERDTree
-    use {
-        "preservim/nerdtree",
+    use { "preservim/nerdtree",
         cmd = "NERDTree",
         config = function()
             require("config.nerdtree").setup()
         end,
     }
 
-    use {
-        "towolf/vim-helm",
-    }
-    use {
-        "nvim-treesitter/nvim-treesitter",
+    use { "nvim-treesitter/nvim-treesitter",
         run = function()
             local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
             ts_update()
@@ -70,19 +74,20 @@ packer.startup(function(use)
             require("config.treesitter").setup()
         end,
     }
-    use {
-        "folke/trouble.nvim",
+
+    use { "folke/trouble.nvim",
         requires = "kyazdani42/nvim-web-devicons",
         config = function()
             require("config.trouble").setup()
         end,
     }
-	use {
-		"junegunn/fzf",
+
+	use { "junegunn/fzf",
 		config = function()
 			require("config.fzf").setup()
 		end,
  	}
+
     if Packer_Bootstrap then
         require('packer').sync()
     end

@@ -22,10 +22,6 @@ vim.opt.signcolumn="yes"
 -- Scroll earlier
 vim.o.scrolloff = 8;
 
--- Colorshceme
-vim.o.background = "dark" -- or "light" for light mode
---vim.cmd("colorscheme gruvbox")
-vim.cmd("hi MatchParen cterm=bold ctermbg=none ctermfg=red")
 
 -- Keybinds
 function map(mode, shortcut, command)
@@ -65,23 +61,29 @@ nmap("<C-d>", "<C-d>zz");
 -- Load Plugins
 require("plugins")
 
-local lsp = require('lsp-zero').preset({
-    name = 'minimal',
-    set_lsp_keymaps = true,
-    manage_nvim_cpm = true,
-    suggest_lsp_servers = true,
-})
+-- Colorshceme
+vim.o.background = "dark" -- or "light" for light mode
+vim.cmd("colorscheme gruvbox")
+vim.cmd("hi MatchParen cterm=bold ctermbg=none ctermfg=red")
 
-lsp.setup()
+-- This does not work for some reason, no compleation
+--local lsp = require('lsp-zero').preset({
+--    name = 'recomended',
+--    set_lsp_keymaps = true,
+--    manage_nvim_cpm = true,
+--    suggest_lsp_servers = true,
+--})
+
+--lsp.setup()
 
 require('neoscroll').setup()
---init lsp-zero
---
---local lsp = require('lsp-zero')
---vim.cmd("let g:lsp_diagnostics_echo_cursor = 1")
 
---lsp.preset('recommended')
---lsp.setup()
+-- Init lsp-zero from the old config file that works
+local lsp = require('lsp-zero')
+vim.cmd("let g:lsp_diagnostics_echo_cursor = 1") -- what does this do?
+
+lsp.preset('recommended')
+lsp.setup()
 
 -- NERDTree
 -- since nerdtree is lazy loaded we need to add a keybind here instead of in its
@@ -91,7 +93,7 @@ vim.api.nvim_set_keymap("n", "<leader>t", "<Cmd>NERDTree<CR>", {noremap = true, 
 -- vim-go
 vim.g.go_gopls_enabled = "0"
 
--- DAP Keybinds
+-- DAP Keybinds, what is this?
 --map({ "n", "<F4>", ":lua require('dapui').toggle()<CR>" })
 --map({ "n", "<F5>", ":lua require('dap').toggle_breakpoint()<CR>" })
 --map({ "n", "<F9>", ":lua require('dap').continue()<CR>" })
