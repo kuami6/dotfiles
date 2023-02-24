@@ -2,3 +2,5 @@
 .vim/plugged
 .vim/.netrwhist
 .vim/plugin
+.vim/plugged
+nvim/plugin
