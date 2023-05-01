@@ -76,7 +76,7 @@ vim.cmd("hi MatchParen cterm=bold ctermbg=none ctermfg=red")
 
 --lsp.setup()
 
-require('neoscroll').setup()
+--require('neoscroll').setup()
 
 -- Init lsp-zero from the old config file that works
 local lsp = require('lsp-zero')
@@ -91,7 +91,7 @@ lsp.setup()
 vim.api.nvim_set_keymap("n", "<leader>t", "<Cmd>NERDTree<CR>", {noremap = true, silent = true})
 
 -- vim-go
-vim.g.go_gopls_enabled = "0"
+--vim.g.go_gopls_enabled = "0"
 
 -- DAP Keybinds, what is this?
 --map({ "n", "<F4>", ":lua require('dapui').toggle()<CR>" })

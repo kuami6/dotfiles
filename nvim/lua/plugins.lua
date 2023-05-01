@@ -49,10 +49,6 @@ packer.startup(function(use)
         }
     }
 
-    -- NeoScroll
-    use { 'karb94/neoscroll.nvim',
-        require('neoscroll').setup()
-    }
 
     -- Gruvbox theme
     use { "ellisonleao/gruvbox.nvim" }
