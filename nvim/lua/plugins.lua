@@ -48,7 +48,9 @@ packer.startup(function(use)
           {'rafamadriz/friendly-snippets'},
         }
     }
-
+    
+    -- Prettier
+    use { 'sbdchd/neoformat' }
 
     -- Gruvbox theme
     use { "ellisonleao/gruvbox.nvim" }
@@ -56,6 +58,10 @@ packer.startup(function(use)
     -- NERDTree
     use { "preservim/nerdtree",
         cmd = "NERDTree",
+        run = function()
+            local ts_update = require('nvim-treesitter.install').upate({ with_sync = true })
+            ts_update()
+        end,
         config = function()
             require("config.nerdtree").setup()
         end,
@@ -73,9 +79,9 @@ packer.startup(function(use)
 
     use { "folke/trouble.nvim",
         requires = "kyazdani42/nvim-web-devicons",
-        config = function()
-            require("config.trouble").setup()
-        end,
+		config = function()
+			require("config.trouble").setup()
+		end,
     }
 
 	use { "junegunn/fzf",

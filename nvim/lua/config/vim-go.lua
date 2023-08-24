@@ -8,7 +8,7 @@ function M.setup()
     keymap("n", "<leader>n", "<Cmd>GoDebugNext<CR>", default_opts)
     keymap("n", "<leader>s", "<Cmd>GoDebugStep<CR>", default_opts)
     keymap("n", "<leader>o", "<Cmd>GoDebugStepOut<CR>", default_opts)
-    keymap("n", "<leader>c", "<Cmd>GoDebugContinue<CR>", default_opts)
+    -- keymap("n", "<leader>c", "<Cmd>GoDebugContinue<CR>", default_opts)
     keymap("n", "<leader>b", "<Cmd>GoDebugBreakpoint<CR>", default_opts)
 
     -- prevent godebug from spewing hundreds of lines of debug messages into the
