@@ -85,6 +85,9 @@ vim.cmd("let g:lsp_diagnostics_echo_cursor = 1") -- what does this do?
 lsp.preset('recommended')
 lsp.setup()
 
+require("mason").setup()
+require("mason-lspconfig").setup()
+require("lspconfig").gopls.setup {}
 -- NERDTree
 -- since nerdtree is lazy loaded we need to add a keybind here instead of in its
 -- config
