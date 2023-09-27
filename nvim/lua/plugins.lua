@@ -46,7 +46,10 @@ packer.startup(function(use)
           -- Snippets
           {'L3MON4D3/LuaSnip'},
           {'rafamadriz/friendly-snippets'},
-        }
+        },
+        config = function()
+            require("config.lsp").setup()
+        end,
     }
     
     -- Prettier
@@ -54,18 +57,6 @@ packer.startup(function(use)
 
     -- Gruvbox theme
     use { "ellisonleao/gruvbox.nvim" }
-
-    -- NERDTree
-    use { "preservim/nerdtree",
-        cmd = "NERDTree",
-        run = function()
-            local ts_update = require('nvim-treesitter.install').upate({ with_sync = true })
-            ts_update()
-        end,
-        config = function()
-            require("config.nerdtree").setup()
-        end,
-    }
 
     use { "nvim-treesitter/nvim-treesitter",
         run = function()
@@ -94,3 +85,5 @@ packer.startup(function(use)
         require('packer').sync()
     end
 end)
+
+require("lsp")
