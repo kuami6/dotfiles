@@ -129,3 +129,6 @@ PERL_LOCAL_LIB_ROOT="/home/nhn/t1-matiass/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LO
 PERL_MB_OPT="--install_base \"/home/nhn/t1-matiass/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/nhn/t1-matiass/perl5"; export PERL_MM_OPT;
 
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/vault vault
