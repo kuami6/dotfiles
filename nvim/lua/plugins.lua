@@ -25,10 +25,9 @@ packer.startup(function(use)
         end,
     }
 
-    use { "towolf/vim-helm" }
-
     -- LSP
     use { 'VonHeikemen/lsp-zero.nvim',
+        branch = 'v3.x',
         requires = {
           -- LSP Support
           {'neovim/nvim-lspconfig'},
@@ -37,19 +36,18 @@ packer.startup(function(use)
 
           -- Autocompletion
           {'hrsh7th/nvim-cmp'},
+          {'hrsh7th/cmp-nvim-lsp'},
           {'hrsh7th/cmp-buffer'},
           {'hrsh7th/cmp-path'},
           {'saadparwaiz1/cmp_luasnip'},
-          {'hrsh7th/cmp-nvim-lsp'},
           {'hrsh7th/cmp-nvim-lua'},
 
-          -- Snippets
+          -- Snippets Engine
           {'L3MON4D3/LuaSnip'},
+
+          -- Snippets
           {'rafamadriz/friendly-snippets'},
-        },
-        config = function()
-            require("config.lsp").setup()
-        end,
+        }
     }
     
     -- Prettier
@@ -58,15 +56,7 @@ packer.startup(function(use)
     -- Gruvbox theme
     use { "ellisonleao/gruvbox.nvim" }
 
-    use { "nvim-treesitter/nvim-treesitter",
-        run = function()
-            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-            ts_update()
-        end,
-        config = function()
-            require("config.treesitter").setup()
-        end,
-    }
+    use( "nvim-treesitter/nvim-treesitter", {run = ':TSUpdate'})
 
     use { "folke/trouble.nvim",
         requires = "kyazdani42/nvim-web-devicons",
