@@ -43,7 +43,9 @@ packer.startup(function(use)
           {'hrsh7th/cmp-nvim-lua'},
 
           -- Snippets Engine
-          {'L3MON4D3/LuaSnip'},
+          {'L3MON4D3/LuaSnip',
+          run = "make install_jsregexp"
+            },
 
           -- Snippets
           {'rafamadriz/friendly-snippets'},
@@ -75,5 +77,3 @@ packer.startup(function(use)
         require('packer').sync()
     end
 end)
-
-require("lsp")
