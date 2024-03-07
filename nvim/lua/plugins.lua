@@ -1,79 +1,91 @@
 local fn = vim.fn
 
-local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
-    Packer_Bootstrap = fn.system({ 'git','clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
-    vim.cmd [[packadd packer.nvim]]
+	Packer_Bootstrap =
+		fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+	vim.cmd([[packadd packer.nvim]])
 end
 
 local present, packer = pcall(require, "packer")
 
 if not present then
-    return
+	return
 end
 
 packer.startup(function(use)
-    use { 'wbthomason/packer.nvim' }
+	use({ "wbthomason/packer.nvim" })
 
-    use { 'mfussenegger/nvim-lint' }
-    use { "mfussenegger/nvim-dap" }
+	-- Linter
+	use({ "mfussenegger/nvim-lint" })
+	-- Formatter
+	use({ "mhartington/formatter.nvim" })
+	use({ "mfussenegger/nvim-dap" })
 
-    -- Vim go
-    use { "fatih/vim-go",
-        config = function()
-            require("config.vim-go").setup()
-        end,
-    }
+	-- Vim go
+	use({
+		"fatih/vim-go",
+		config = function()
+			require("config.vim-go").setup()
+		end,
+	})
 
-    -- LSP
-    use { 'VonHeikemen/lsp-zero.nvim',
-        branch = 'v3.x',
-        requires = {
-          -- LSP Support
-          {'neovim/nvim-lspconfig'},
-          {'williamboman/mason.nvim'},
-          {'williamboman/mason-lspconfig.nvim'},
+	-- LSP
+	use({
+		"VonHeikemen/lsp-zero.nvim",
+		branch = "v3.x",
+		requires = {
+			-- LSP Support
+			{ "neovim/nvim-lspconfig" },
+			{ "williamboman/mason.nvim" },
+			{ "williamboman/mason-lspconfig.nvim" },
 
-          -- Autocompletion
-          {'hrsh7th/nvim-cmp'},
-          {'hrsh7th/cmp-nvim-lsp'},
-          {'hrsh7th/cmp-buffer'},
-          {'hrsh7th/cmp-path'},
-          {'saadparwaiz1/cmp_luasnip'},
-          {'hrsh7th/cmp-nvim-lua'},
+			-- Autocompletion
+			{ "hrsh7th/nvim-cmp" },
+			{ "hrsh7th/cmp-nvim-lsp" },
+			{ "hrsh7th/cmp-buffer" },
+			{ "hrsh7th/cmp-path" },
+			{ "saadparwaiz1/cmp_luasnip" },
+			{ "hrsh7th/cmp-nvim-lua" },
 
-          -- Snippets Engine
-          {'L3MON4D3/LuaSnip',
-          run = "make install_jsregexp"
-            },
+			-- Snippets Engine
+			{ "L3MON4D3/LuaSnip", run = "make install_jsregexp" },
 
-          -- Snippets
-          {'rafamadriz/friendly-snippets'},
-        }
-    }
-    
-    -- Prettier
-    use { 'sbdchd/neoformat' }
+			-- Snippets
+			{ "rafamadriz/friendly-snippets" },
+		},
+	})
 
-    -- Gruvbox theme
-    use { "ellisonleao/gruvbox.nvim" }
+	-- Gruvbox theme
+	use({ "ellisonleao/gruvbox.nvim" })
 
-    use( "nvim-treesitter/nvim-treesitter", {run = ':TSUpdate'})
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		run = ":TSUpdate",
+		-- autoclose html tags (probably some other tags aswell)
+		require("nvim-treesitter.configs").setup({
+			autotag = {
+				enable = true,
+			},
+		}),
+	})
 
-    use { "folke/trouble.nvim",
-        requires = "kyazdani42/nvim-web-devicons",
+	use({
+		"folke/trouble.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
 		config = function()
 			require("config.trouble").setup()
 		end,
-    }
+	})
 
-	use { "junegunn/fzf",
+	use({
+		"junegunn/fzf",
 		config = function()
 			require("config.fzf").setup()
 		end,
- 	}
+	})
 
-    if Packer_Bootstrap then
-        require('packer').sync()
-    end
+	if Packer_Bootstrap then
+		require("packer").sync()
+	end
 end)
