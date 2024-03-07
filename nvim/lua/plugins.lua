@@ -18,11 +18,14 @@ packer.startup(function(use)
 
 	-- Linter
 	use({ "mfussenegger/nvim-lint" })
+
 	-- Formatter
 	use({ "mhartington/formatter.nvim" })
+
+	-- Dap
 	use({ "mfussenegger/nvim-dap" })
 
-	-- Vim go
+	-- Vim go (all in one solution for linting, formatting, lsp)
 	use({
 		"fatih/vim-go",
 		config = function()

@@ -1,4 +1,4 @@
--- Default config example taken from :h formatter
+-- Default config example taken from :h formatter with some modifications
 -- Utilities for creating configurations
 local util = require("formatter.util")
 
@@ -21,9 +21,11 @@ require("formatter").setup({
 		typescript = {
 			require("formatter.filetypes.typescript").prettierd,
 		},
+
 		javascript = {
 			require("formatter.filetypes.javascript").prettierd,
 		},
+
 		html = {
 			require("formatter.filetypes.html").prettierd,
 		},
@@ -38,13 +40,17 @@ require("formatter").setup({
 	},
 })
 
--- autocmd to get autoformatting on angular projects
+-- autocmd to get autoformatting on save on select filetypes
 local fos = vim.api.nvim_create_augroup("FormatterOnSave", {
 	clear = false,
 })
+
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	pattern = { "*.ts", "*.js", "*.html", "*.css", "*.lua" },
+	group = fos,
 	callback = function()
+		-- a bit hacky to call into vim cmds, but i couldn't find the propper
+		-- formatter api function to call, consider changing
 		vim.cmd("FormatWrite")
 	end,
 })
