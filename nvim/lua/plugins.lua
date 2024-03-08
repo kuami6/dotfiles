@@ -46,13 +46,10 @@ packer.startup(function(use)
 		end,
 	})
 
-	-- Error viewing, and more?
+	-- Error-viewing, and more?
 	use({
 		"folke/trouble.nvim",
 		requires = "kyazdani42/nvim-web-devicons",
-		config = function()
-			require("config.trouble").setup()
-		end,
 	})
 
 	-- LSP
