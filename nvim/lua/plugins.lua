@@ -33,6 +33,8 @@ packer.startup(function(use)
 		run = ":TSUpdate",
 	})
 
+	use({ "nvim-telescope/telescope.nvim" })
+
 	-- Vim go (all in one solution for linting, formatting, lsp, and dap i think)
 	use({
 		"fatih/vim-go",
