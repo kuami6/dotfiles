@@ -23,13 +23,15 @@ require("mason-lspconfig").setup({
 
 -- Linter test, this will not reside here in the future
 -- revisit when we get formatters to work
---require('lint').linters_by_ft = {
---    javascript = { 'eslint_d', },
---    typescript = { 'eslint_d', },
---}
---
---vim.api.nvim_create_autocmd({ "BufWritePost" }, {
---  callback = function()
---    require("lint").try_lint()
---  end,
---})
+-- eslint complains about missing config, I need to figure out how to set the
+-- config for eslint
+require("lint").linters_by_ft = {
+	javascript = { "eslint_d" },
+	typescript = { "eslint_d" },
+}
+
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+	callback = function()
+		require("lint").try_lint()
+	end,
+})
