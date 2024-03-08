@@ -26,11 +26,27 @@ packer.startup(function(use)
 	use({ "mfussenegger/nvim-dap" })
 	use({ "rcarriga/nvim-dap-ui" })
 
+	-- Better syntax highlighting, and some other features like autoclose html
+	-- tags
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		run = ":TSUpdate",
+	})
+
 	-- Vim go (all in one solution for linting, formatting, lsp, and dap i think)
 	use({
 		"fatih/vim-go",
 		config = function()
 			require("config.vim-go").setup()
+		end,
+	})
+
+	-- Error viewing, and more?
+	use({
+		"folke/trouble.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
+		config = function()
+			require("config.trouble").setup()
 		end,
 	})
 
@@ -68,25 +84,6 @@ packer.startup(function(use)
 		config = function()
 			vim.o.background = "dark"
 			vim.cmd("colorscheme gruvbox")
-		end,
-	})
-
-	use({
-		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
-		-- autoclose html tags (probably some other tags aswell)
-		require("nvim-treesitter.configs").setup({
-			autotag = {
-				enable = true,
-			},
-		}),
-	})
-
-	use({
-		"folke/trouble.nvim",
-		requires = "kyazdani42/nvim-web-devicons",
-		config = function()
-			require("config.trouble").setup()
 		end,
 	})
 
