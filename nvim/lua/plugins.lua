@@ -26,7 +26,7 @@ packer.startup(function(use)
 	use({ "mfussenegger/nvim-dap" })
 	use({ "rcarriga/nvim-dap-ui" })
 
-	-- Vim go (all in one solution for linting, formatting, lsp)
+	-- Vim go (all in one solution for linting, formatting, lsp, and dap i think)
 	use({
 		"fatih/vim-go",
 		config = function()
