@@ -60,7 +60,15 @@ packer.startup(function(use)
 	})
 
 	-- Gruvbox theme
-	use({ "ellisonleao/gruvbox.nvim" })
+	use({
+		"ellisonleao/gruvbox.nvim",
+		-- Setting the colorscheme her prevents some errors when boostrapping
+		-- the config
+		config = function()
+			vim.o.background = "dark"
+			vim.cmd("colorscheme gruvbox")
+		end,
+	})
 
 	use({
 		"nvim-treesitter/nvim-treesitter",
@@ -78,13 +86,6 @@ packer.startup(function(use)
 		requires = "kyazdani42/nvim-web-devicons",
 		config = function()
 			require("config.trouble").setup()
-		end,
-	})
-
-	use({
-		"junegunn/fzf",
-		config = function()
-			require("config.fzf").setup()
 		end,
 	})
 
