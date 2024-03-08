@@ -14,6 +14,7 @@ require("mason-lspconfig").setup({
 			require("lspconfig").lua_ls.setup(lua_opts)
 		end,
 
+		-- Not installed, find out if ensure installed still works
 		--dartls = function ()
 		--    require'lspconfig'.dartls.setup({})
 		--end,
