@@ -33,7 +33,10 @@ packer.startup(function(use)
 		run = ":TSUpdate",
 	})
 
-	use({ "nvim-telescope/telescope.nvim" })
+	-- Fuzzy finder
+	use({ "nvim-telescope/telescope.nvim", requires = {
+		{ "nvim-lua/plenary.nvim" },
+	} })
 
 	-- Vim go (all in one solution for linting, formatting, lsp, and dap i think)
 	use({
@@ -79,15 +82,7 @@ packer.startup(function(use)
 	})
 
 	-- Gruvbox theme
-	use({
-		"ellisonleao/gruvbox.nvim",
-		-- Setting the colorscheme her prevents some errors when boostrapping
-		-- the config
-		config = function()
-			vim.o.background = "dark"
-			vim.cmd("colorscheme gruvbox")
-		end,
-	})
+	use({ "ellisonleao/gruvbox.nvim" })
 
 	if Packer_Bootstrap then
 		require("packer").sync()
