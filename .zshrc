@@ -131,4 +131,5 @@ PERL_MM_OPT="INSTALL_BASE=/home/nhn/t1-matiass/perl5"; export PERL_MM_OPT;
 
 
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/bin/vault vault
+
+export DO_NOT_TRACK=1
