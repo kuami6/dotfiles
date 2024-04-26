@@ -14,6 +14,10 @@ require("mason-lspconfig").setup({
 			require("lspconfig").lua_ls.setup(lua_opts)
 		end,
 
+		vtsls = function()
+			require("lspconfig").vtsls.setup({})
+		end,
+
 		-- Not installed, find out if ensure installed still works
 		--dartls = function ()
 		--    require'lspconfig'.dartls.setup({})
@@ -29,7 +33,7 @@ require("lint").linters_by_ft = {
 	javascript = { "eslint_d" },
 	typescript = { "eslint_d" },
 }
-
+-- lint whenever we exit insert mode I think, and only when text changed
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	callback = function()
 		require("lint").try_lint()

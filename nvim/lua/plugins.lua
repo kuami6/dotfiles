@@ -39,13 +39,17 @@ packer.startup(function(use)
 		{ "nvim-lua/plenary.nvim" },
 	} })
 
+	-- profiler
+	use({ "dstein64/vim-startuptime" })
+
 	-- Vim go (all in one solution for linting, formatting, lsp, and dap i think)
 	-- this is a vim plugin and needs to be setup a bit differently
 	-- should see if I can just drop it and implement the features with lsp zero
-	-- and the resot of the plugins
+	-- and the rest of the plugins
 	use({
 		"fatih/vim-go",
 		config = function()
+			-- this might do nothing
 			require("after.pluging.vim-go").setup()
 		end,
 	})
